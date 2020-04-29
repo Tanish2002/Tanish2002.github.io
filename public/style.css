@@ -1,24 +1,87 @@
-body {
-  font-family: sans-serif;
-  margin: auto;
-  max-width: 1280px;
+.a
+{
+	font-family:	FiraCode;
+    font-size: 1.5em;
+    animation: fadein 1s;
+    -webkit-animation: fadein 1s;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #101010;
+    color: #bbbbbb;
 }
 
-.navbar {
-  background-color: #313236;
-  border-radius: 2px;
-  max-width: 800px;
+body.b
+{
+    font-family: FiraCode;
+    font-size: 1.5em;
+    animation: fadein 1s;
+    -webkit-animation: fadein 1s;
+    background-color: #101010;
+    color: #bbbbbb;
+
+    padding: 5%;
+    padding-left: 10%
 }
 
-.navbar a {
-  color: #aaa;
-  display: inline-block;
-  font-size: 15px;
-  padding: 10px;
-  text-decoration: none;
+h1
+{
+    font-size: 1em;
 }
 
-.navbar a:hover {
-  color: #ffffff;
+hr
+{
+	border: solid 1px;
 }
 
+blink {
+  animation: blinker 2s ease infinite;
+}
+
+cyan { color: #AFF; }
+
+a { 
+	color: #6FF; 
+	text-decoration: none
+}
+a:hover { 
+	text-decoration: underline; 
+}
+
+#links
+{
+	font-size: 0.9em;
+}
+
+.btext
+{
+	font-size: 0.75em;
+}
+
+.blog 
+{
+    font-size: 0.5em;
+}
+/*******************************************/
+
+@keyframes fadein {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+    0% { opacity: 0; }
+    100% { opacity: 1; }
+}
+
+@font-face {
+	src:			url("fira.woff2");
+	font-family: 	FiraCode;
+}
+
+@keyframes blinker {
+  50% {
+    opacity: 0;
+  }
+}
