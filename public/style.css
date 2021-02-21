@@ -21,7 +21,8 @@ a:hover {color: #ff6666; }
 .entry h2 { margin: 5px auto 2px auto; }
 .a
 {
-	font-family:	FiraCode;
+    font-family: 'Fira Code', monospace;
+    font-weight: 500;
     font-size: 1.5em;
     animation: fadein 1s;
     -webkit-animation: fadein 1s;
@@ -35,7 +36,8 @@ a:hover {color: #ff6666; }
 
 body.b
 {
-    font-family: FiraCode;
+    font-family: 'Fira Code', monospace;
+    font-weight: 500;
     font-size: 1.5em;
     animation: fadein 1s;
     -webkit-animation: fadein 1s;
@@ -102,10 +104,6 @@ a:hover {
 	font-size: 0.75em;
 }
 
-.blog 
-{
-    font-size: 0.5em;
-}
 /*******************************************/
 
 @keyframes fadein {
@@ -118,10 +116,7 @@ a:hover {
     100% { opacity: 1; }
 }
 
-@font-face {
-	src:			url("fira.woff2");
-	font-family: 	FiraCode;
-}
+@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@700&display=swap');
 
 @keyframes blinker {
   50% {
