@@ -51,7 +51,7 @@ archivefile="$webdir/posts/.htaccess"
 
   publish() {
     if [[ $(getExtension $chosen) == md ]]; then
-      markdown "$webdir/posts/.drafts/$chosen" > "$webdir/posts/.drafts/${chosen/.md/.html}"
+      pandoc --from markdown_strict --to html "$webdir/posts/.drafts/$chosen" > "$webdir/posts/.drafts/${chosen/.md/.html}"
       rm -rf "$webdir/posts/.drafts/$chosen"
       chosen="${chosen/.md/.html}"
       basefile="$(basename "$chosen")" && base="${basefile%.*}"
@@ -63,7 +63,7 @@ archivefile="$webdir/posts/.htaccess"
     [ -z "$rssdate" ] && rssdate="$(LC_TIME=en_US date '+%a, %d %b %Y %H:%M:%S %z')" # RSS date formats must comply with standards to validate.
     webdate="$(date '+%a, %d %b %Y %H:%M:%S %z')" # But this visible date you can set to any format.
     tmpdir=$(mktemp -d)
-    printf "<!DOCTYPE html>\\n<html lang=\"en\">\\n<head>\\n<title>%s</title>\\n<link rel='stylesheet' type='text/css' href='%s'>\\n<meta charset='utf-8'/>\\n</head>\\n<body class="a">\\n<h1><cyan>$</cyan> %s<blink>_</blink></h1><hr>\\n%s\\n<footer>by <strong><a href='%s'>%s</a></strong>\\n<small>[<a href='%s#%s'>index</a>]</small></footer>\\n</body>\\n\\n</html>" "$realname" "$css" "$realname" "$(cat "$webdir/posts/.drafts/$basefile")" "$website" "$name" "../$blogfile" "$base" > "$webdir/posts/$basefile"
+    printf "<!DOCTYPE html>\\n<html lang=\"en\">\\n<head>\\n<title>%s</title>\\n<link rel='stylesheet' type='text/css' href='%s'>\\n<meta charset='utf-8'/>\\n</head>\\n<body class="b">\\n<h1><cyan>$</cyan> %s<blink>_</blink></h1>\\n<hr>\\n%s\\n<footer>by <strong><a href='%s'>%s</a></strong>\\n<small>[<a href='%s#%s'>index</a>]</small></footer>\\n</body>\\n\\n</html>" "$realname" "$css" "$realname" "$(cat "$webdir/posts/.drafts/$basefile")" "$website" "$name" "../$blogfile" "$base" > "$webdir/posts/$basefile"
     printf "\\n<item>\\n<title>%s</title>\\n<guid>%s%s#%s</guid>\\n<pubDate>%s</pubDate>\\n<description><![CDATA[\\n%s\\n]]></description>\\n</item>\\n\\n" "$realname" "$website" "$blogfile" "$base" "$rssdate" "$(cat "$webdir/posts/.drafts/$basefile")" >  "$tmpdir/rss"
     printf "<div class='entry'>\\n<h2 id='%s'>%s</h2>\\n<small>[<a href='%s'>post</a>]</small>\\n%s\\n<small>%s</small>\\n</div>\\n" "$base" "$realname" "posts/$basefile" "$(cat "$webdir/posts/.drafts/$basefile")" "$webdate" > "$tmpdir/html"
     printf "<center><li><a href=\"posts/%s\">%s</a></li></center>\\n" "$basefile" "$realname" > "$tmpdir/index"
@@ -83,9 +83,10 @@ delete() { \
   sed -i "/<li>.*<a href=\"posts\\/$base.html\">/d" "$indexfile"
   rm -f "$webdir/posts/$basefile" && [[ "$1" != "draft" ]] && printf "Old blog entry removed.\\n";}
 
-  revise() { pandoc --from html --to markdown "$webdir/posts/$chosen" > "$webdir/posts/.drafts/$base.md"
-    "$EDITOR" "$webdir/posts/.drafts/$base.md"
-    printf "Revision stored in posts/.drafts. Publish as normal entry when desired.\\n" ;}
+  revise() {
+	  awk '/^<hr>/{flag=1;next}/<footer>/{flag=0}flag' "$webdir/posts/$chosen" | pandoc --from html --to markdown_strict > "$webdir/posts/.drafts/$base.md"
+	  "$EDITOR" "$webdir/posts/.drafts/$base.md"
+	  printf "Revision stored in posts/.drafts. Publish as normal entry when desired.\\n" ;}
 
     case "$1" in
       n*) newpost n ;;
