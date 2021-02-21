@@ -1,3 +1,24 @@
+html {
+	max-width: 1050px;
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 30px;
+	background-color: #101010;
+	color: #bbbbbb;
+	padding-bottom: 200px;
+	 }
+
+a:hover {color: #ff6666; }
+
+.entry {
+	border-left: 10px solid cyan;
+	padding: 0px 10px 0px 10px;
+	border-radius: 0 0px 0px 0;
+	margin-bottom: 20px;
+	background-color: #202020;
+	}
+
+.entry h2 { margin: 5px auto 2px auto; }
 .a
 {
 	font-family:	FiraCode;
@@ -29,12 +50,34 @@ h1
 {
     font-size: 1em;
 }
-
+h2
+{
+    font-size: 0.8em;
+}
+h3
+{
+    font-size: 0.6em;
+}
+h4
+{
+    font-size: 0.4em;
+}
+h5
+{
+    font-size: 0.2em;
+}
+p
+{
+	font-size: 0.7em;
+}
 hr
 {
 	border: solid 1px;
 }
-
+footer
+{
+	font-size: 0.5em;
+}
 blink {
   animation: blinker 2s ease infinite;
 }
