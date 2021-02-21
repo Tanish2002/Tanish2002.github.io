@@ -79,7 +79,7 @@ hr
 pre code
 {
   background-color: #202020;
-  border: 1px inset cyan;
+  border: 1px outset cyan;
   color: #bbbbbb;
   display: block;
   padding: 20px;
