@@ -87,7 +87,7 @@ pre code
 code
 {
   background-color: #202020;
-  border: 1px outset transparent;
+  border: 1px inset cyan;
   color: #bbbbbb;
 }
 footer
