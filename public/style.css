@@ -90,6 +90,10 @@ code
   border: 1px inset cyan;
   color: #bbbbbb;
 }
+.center li{
+  text-align: center;
+  list-style: inside;
+ }
 footer
 {
 	font-size: 0.5em;
