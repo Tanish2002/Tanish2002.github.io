@@ -25,10 +25,10 @@ archivefile="$webdir/posts/.htaccess"
     url="$(echo "$title" | iconv -cf UTF-8 -t ASCII//TRANSLIT | tr -d '[:punct:]' | tr '[:upper:]' '[:lower:]' | tr ' ' '-' | sed "s/-\+/-/g;s/\(^-\|-\$\)//g")"
     echo "AddDescription \"$title\" \"$url.html\"" >>  "$archivefile"|| { echo "Error: Is $archivefile writeable?"; exit; }
     ( [ -f "$webdir/posts/.drafts/$url.html" ] || [ -f "$webdir/posts/$url.html" ] ) && echo "There is already an existing draft or post of that same name/URL." && exit
-    if [[ $1 == n ]]; then
-      $EDITOR "$webdir/posts/.drafts/$url.html"
-    else
+    if [[ $1 == m ]]; then
       $EDITOR "$webdir/posts/.drafts/$url.md"
+    elif [[ $1 == o ]]; then
+      emacs "$webdir/posts/.drafts/$url.org"
       fi ;}
 
 
@@ -54,6 +54,11 @@ archivefile="$webdir/posts/.htaccess"
       pandoc --from markdown_strict --to html "$webdir/posts/.drafts/$chosen" > "$webdir/posts/.drafts/${chosen/.md/.html}"
       rm -rf "$webdir/posts/.drafts/$chosen"
       chosen="${chosen/.md/.html}"
+      basefile="$(basename "$chosen")" && base="${basefile%.*}"
+    elif [[ $(getExtension $chosen) == org ]]; then
+      pandoc --from org --to markdown_strict "$webdir/posts/.drafts/$chosen" | pandoc --from markdown_strict --to html > "$webdir/posts/.drafts/${chosen/.org/.html}"
+      rm -rf "$webdir/posts/.drafts/$chosen"
+      chosen="${chosen/.org/.html}"
       basefile="$(basename "$chosen")" && base="${basefile%.*}"
     fi
     delete draft
@@ -89,17 +94,23 @@ delete() { \
 
   revise() {
 	  revision="true"
-	  awk '/^<hr>/{flag=1;next}/<footer>/{flag=0}flag' "$webdir/posts/$chosen" | pandoc --from html --to markdown_strict > "$webdir/posts/.drafts/$base.md"
-	  "$EDITOR" "$webdir/posts/.drafts/$base.md"
+	  if [[ $1 == m ]]; then
+		  awk '/^<hr>/{flag=1;next}/<footer>/{flag=0}flag' "$webdir/posts/$chosen" | pandoc --from html --to markdown_strict > "$webdir/posts/.drafts/$base.md"
+		  "$EDITOR" "$webdir/posts/.drafts/$base.md"
+	  elif [[ $1 == o ]]; then
+		  awk '/^<hr>/{flag=1;next}/<footer>/{flag=0}flag' "$webdir/posts/$chosen" | pandoc --from html --to markdown_strict | pandoc --from markdown_strict --to org > "$webdir/posts/.drafts/$base.org"
+		  emacs "$webdir/posts/.drafts/$base.org"
+      fi
 	  printf "Revision stored in posts/.drafts. Publish as normal entry when desired.\\n" ;}
 
     case "$1" in
-      n*) newpost n ;;
+      o*) newpost o ;;
       m*) newpost m ;;
       e*) listandReturn "$webdir"/posts/.drafts/ edit && "$EDITOR" "$webdir/posts/.drafts/$chosen" ;;
       p*) listandReturn "$webdir"/posts/.drafts/ publish && publish ;;
       t*) listandReturn "$webdir"/posts/.drafts/ trash && confirm trash && rm -f "$webdir/posts/.drafts/$chosen" && sed -i "/ \"$base.html\"/d" "$archivefile" ; printf "Draft deleted.\\n" ;;
       d*) listandReturn "$webdir"/posts/ delete && confirm delete && delete && sed -i "/ \"$base.html\"/d" "$archivefile" ;;
-      r*) listandReturn "$webdir"/posts/ revise && revise ;;
-      *) printf "lb blog system by Luke Smith <luke@lukesmith.xyz>\\nUsage:\\n  lb n:\\tnew draft\\n  lb m:\tnew draft in markdown\n  lb e:\\tedit draft\\n  lb p:\\tpublish/finalize draft\\n  lb r:\\trevise published entry\\n  lb t:\\tdiscard draft\\n  lb d:\\tdelete published entry\\n\\nBe sure to have the following pattern added to your RSS feed, blog file and blog index:\\n\\n<!-- LB -->\\n\\nNew content will be added directly below that sequence. This is required.\\nSee https://github.com/LukeSmithxyz/lb for more.\\n" ;;
+      rm*) listandReturn "$webdir"/posts/ revise && revise m ;;
+      ro*) listandReturn "$webdir"/posts/ revise && revise o ;;
+      *) printf "Usage:\\n  lb n:\\t new draft in org\\n  lb m:\t new draft in markdown\n  lb e:\\t edit draft\\n  lb p:\\t publish/finalize draft\\n  lb rm:\\trevise published entry in md\\n  lb ro:\\trevise published entry in org\\n  lb t:\\t discard draft\\n  lb d:\\t delete published entry\\n\\nBe sure to have the following pattern added to your RSS feed, blog file and blog index:\\n\\n<!-- LB -->\\n" ;;
     esac
