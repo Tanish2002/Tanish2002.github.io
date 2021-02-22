@@ -46,18 +46,28 @@ Anyways I guess I'll end this blog here as this blog was made mostly for testing
 </item>
 
 
-
-
-
-
 <item>
 <title>This is a test blog</title>
-<guid>../index.html2021.html#this-is-a-test-blog</guid>
+<guid>https://tanish2002.gitlab.io/2021.html#this-is-a-test-blog</guid>
 <pubDate>Sun, 21 Feb 2021 18:29:03 +0530</pubDate>
 <description><![CDATA[
-
+<p>This was made using a shell script which statically generates a blog with a index and other stuff This blog was written in <strong>Markdown</strong></p>
+<h2>does the second heading work?</h2>
+<p>I will try to be regular <span class="small">pls don't hate if I am not</span></p>
 ]]></description>
 </item>
+
+
+
+
+
+
+
+
+
+
+
+
 </channel>
 </rss>
 
