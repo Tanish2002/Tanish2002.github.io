@@ -56,6 +56,10 @@ getExtension() {
 }
 
 publish() {
+  if [[ $(tail -1 $webdir/posts/.drafts/$chosen) = "EDITED" ]]; then
+    revision="True"
+    sed -i '$d' $webdir/posts/.drafts/$chosen
+  fi
   if [[ $(getExtension $chosen) == md ]]; then
     pandoc --from markdown_strict --to html "$webdir/posts/.drafts/$chosen" >"$webdir/posts/.drafts/${chosen/.md/.html}"
     rm -rf "$webdir/posts/.drafts/$chosen"
@@ -100,13 +104,14 @@ delete() {
 }
 
 revise() {
-  revision="True"
   if [[ $1 == m ]]; then
     awk '/^<hr>/{flag=1;next}/<footer>/{flag=0}flag' "$webdir/posts/$chosen" | pandoc --from html --to markdown_strict >"$webdir/posts/.drafts/$base.md"
     "$EDITOR" "$webdir/posts/.drafts/$base.md"
+    printf 'EDITED' >> "$webdir/posts/.drafts/$base.md"
   elif [[ $1 == o ]]; then
     awk '/^<hr>/{flag=1;next}/<footer>/{flag=0}flag' "$webdir/posts/$chosen" | pandoc --from html --to markdown_strict | pandoc --from markdown_strict --to org >"$webdir/posts/.drafts/$base.org"
     emacs "$webdir/posts/.drafts/$base.org"
+    printf 'EDITED' >> "$webdir/posts/.drafts/$base.org"
   fi
   printf "Revision stored in posts/.drafts. Publish as normal entry when desired.\\n"
 }
