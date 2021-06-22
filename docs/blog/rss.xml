@@ -17,18 +17,18 @@
 <pubDate>Fri, 16 Apr 2021 03:37:04 +0530</pubDate>
 <description><![CDATA[
 <p>I've been using Linux for 2 years now. When I started it was difficult to find a truly optimal guide or some reasons as to why should I even bother using Linux when Windows "just works".<br />
-Well through this post I'm going to explain Why YOU should use Linux and How to get started with it. So without further ado, here is my guide to help boost you up in the Linux Journey</p>
+Well through this post I'm going to explain Why YOU should use Linux and How to get started with it. So without further ado, here is my guide to help boost you up in your Linux Journey</p>
 <h1>What is Linux?</h1>
-<p>I'll keep it short, Linux is <strong>NOT</strong> an Operating System, Linux itself is a <a href="https://en.wikipedia.org/wiki/Kernel_(operating_system)">Kernel</a>. GNU/Linux(Usually Pronounced as GNU-slash-Linux) is the combination of GNU Software and the Linux Kernel both together forming an Operating System.<br />
+<p>I'll keep it short, Linux is <strong>NOT</strong> an Operating System, Linux itself is a <a href="https://en.wikipedia.org/wiki/Kernel_(operating_system)">Kernel</a>. GNU/Linux(Usually Pronounced as Ganoo-slash-Linux) is the combination of GNU Software and the Linux Kernel both together forming an Operating System.<br />
 So If you are ever using a Linux Distro you are actually using GNU/Linux and not just Linux</p>
 <h1>Why Linux?</h1>
 <p>There are many reasons to learn Linux. Linux is a high-performance operating system way faster than most of the other Operating Systems</p>
 <h2>1. Always Full of surprises!</h2>
 <p>Linux is interesting to learn. It will not stop surprising you when it comes to learning something “new.” Did you Know?: You usually don't have to find "EXE" files to install packages, 90% of the software you want is already available in your distro's software repository.</p>
 <h2>2. It's FOSS! (Free and Open Source Software)</h2>
-<p>The Linux Kernel and the GNU Software are Free to use and OpenSource hence you don't have to pay a penny to use them.// Unlike Windows or any other paid Operating System there is no license fee</p>
+<p>The Linux Kernel and the GNU Software are Free to use and OpenSource hence you don't have to pay a penny to use them. Unlike Windows or any other paid Operating System there is no license fee</p>
 <h2>3. Are you a programmer? Well, then this is your heaven.</h2>
-<p>Programmers Love Linux as they can modify their system on a whole another level and play around with things they were usually restricted from in their old OS<br />
+<p>Programmers Love Linux as they can modify their system on a whole another level and play around with things they were usually restricted from in their old OS.<br />
 Linux supports all the Major Languages and companies prefer to use Linux as their Primary OS when it comes to developing software</p>
 <h2>4. Automate Everything!</h2>
 <p>You can automate everything in Linux using simple 10 line <a href="https://en.wikipedia.org/wiki/Shell_script">shell scripts</a>.<br />
@@ -138,10 +138,11 @@ The File structure is pretty easy to understand as well</p>
 <h1>Will this blog be updated often?</h1>
 <p>Short answer- NO, mostly becuase I'm busy with college and other stuff and this blog was mostly made becuase I wanted to make one :P, though I would try my best to update the blog often. Please don't hate me if I don't kthx.<br />
 Anyways I guess I'll end this blog here as this blog was made mostly for testing purpose. Thanks for reading 😊</p>
+<p>by <strong><a href="https://tanish2002.gitlab.io/">Tanish Khare</a></strong> <span
+class="small">[<a href="../blogindex.html">index</a>|<a href="../2021.html#starting-a-blog">rolling</a>]<br />
+<a href="../rss.xml">subscribe</a></span></p>
 ]]></description>
 </item>
-
-
 <item>
 <title>This is a test blog</title>
 <guid>https://tanish2002.gitlab.io/2021.html#this-is-a-test-blog</guid>
@@ -150,9 +151,15 @@ Anyways I guess I'll end this blog here as this blog was made mostly for testing
 <p>This was made using a shell script which statically generates a blog with a index and other stuff This blog was written in <strong>Markdown</strong></p>
 <h2>does the second heading work?</h2>
 <p>I will try to be regular <span class="small">pls don't hate if I am not</span></p>
+<p>by <strong><a href="https://tanish2002.gitlab.io/">Tanish Khare</a></strong> <span
+class="small">[<a href="../blogindex.html">index</a>|<a href="../2021.html#this-is-a-test-blog">rolling</a>]<br />
+<a href="../rss.xml">subscribe</a></span></p>
 ]]></description>
 </item>
+
+
 </channel>
 </rss>
+
 
 
