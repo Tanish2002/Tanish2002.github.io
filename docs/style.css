@@ -1,16 +1,12 @@
-html {
-  max-width: 1050px;
-  margin-left: auto;
-  margin-right: auto;
-  margin-top: 30px;
-  background-color: #101010;
-  color: #bbbbbb;
-  padding-bottom: 200px;
+* {
+  margin: 0;
+  padding: 0;
 }
 
 a:hover {
   color: #ff6666;
 }
+
 
 .entry {
   border-left: 10px solid cyan;
@@ -23,6 +19,7 @@ a:hover {
 .entry h2 {
   margin: 5px auto 2px auto;
 }
+
 .a {
   font-family: "Fira Code", monospace;
   font-weight: 500;
@@ -35,6 +32,7 @@ a:hover {
   transform: translate(-50%, -50%);
   background-color: #101010;
   color: #bbbbbb;
+  z-index: 1;
 }
 
 body.b {
@@ -45,7 +43,6 @@ body.b {
   -webkit-animation: fadein 1s;
   background-color: #101010;
   color: #bbbbbb;
-
   padding: 5%;
   padding-left: 10%;
 }
@@ -53,24 +50,31 @@ body.b {
 h1 {
   font-size: 1em;
 }
+
 h2 {
   font-size: 0.8em;
 }
+
 h3 {
   font-size: 0.6em;
 }
+
 h4 {
   font-size: 0.4em;
 }
+
 h5 {
   font-size: 0.2em;
 }
+
 p {
   font-size: 0.7em;
 }
+
 hr {
   border: solid 1px;
 }
+
 pre code {
   background-color: #202020;
   border: 1px outset cyan;
@@ -82,6 +86,7 @@ pre code {
   max-width: 100%;
   padding: 20px;
 }
+
 code {
   background-color: #202020;
   border: 1px inset cyan;
@@ -91,9 +96,11 @@ code {
   max-width: 100%;
   color: #bbbbbb;
 }
+
 footer {
   font-size: 0.5em;
 }
+
 blink {
   animation: blinker 2s ease infinite;
 }
@@ -106,6 +113,7 @@ a {
   color: #6ff;
   text-decoration: none;
 }
+
 a:hover {
   text-decoration: underline;
 }
@@ -124,6 +132,7 @@ a:hover {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
@@ -133,6 +142,7 @@ a:hover {
   0% {
     opacity: 0;
   }
+
   100% {
     opacity: 1;
   }
