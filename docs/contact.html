@@ -1,42 +1,36 @@
-<!-- <!DOCTYPE html> -->
+<!DOCTYPE html>
 <html>
-
 <head>
 	<title>Contact_Me</title>
 	<meta name="viewport" content="width=device-width, initial-scale=0.6">
-	<link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
+    <link rel="stylesheet" href="https://code.cdn.mozilla.net/fonts/fira.css">
 	<link rel="stylesheet" type="text/css" href="style.css" />
 	<meta charset="unicode" />
 	<script>
 		function myFunction() {
-			var copyText = document.getElementById("discord").name;
-			var mockInput = document.createElement("input");
-			document.body.appendChild(mockInput);
-			mockInput.type = "text";
-			mockInput.value = copyText;
-			mockInput.style.opacity = 0;
-			mockInput.style.position = "absolute";
-			mockInput.style.top = "0px";
-			mockInput.style.left = "0px";
-			mockInput.select();
-			document.execCommand("Copy");
-			mockInput.parentNode.removeChild(mockInput);
+		  var copyText = document.getElementById("discord").name;
+		  var mockInput = document.createElement("input");
+		  document.body.appendChild(mockInput);
+		  mockInput.type = "text";
+		  mockInput.value = copyText;
+		  mockInput.style.opacity = 0;
+		  mockInput.style.position = "absolute";
+		  mockInput.style.top = "0px";
+		  mockInput.style.left = "0px";
+		  mockInput.select();
+		  document.execCommand("Copy");
+		  mockInput.parentNode.removeChild(mockInput);
 		}
 	</script>
 </head>
-
 <body class="a">
-	<h1>
-		<cyan>$</cyan> contactme<blink>_</blink>
-	</h1>
+	<h1><cyan>$</cyan> contactme<blink>_</blink></h1>
 	<hr>
 	<p class="btext">You can Contact me through the following platforms.</p>
 	<ul id="links">
-		<li><a href="https://gitlab.com/Tanish2002">GitLab</a>/<a href="https://github.com/Tanish2002">GitHub</a></li>
-		<li><a href="https://www.instagram.com/baka_otaku2002/">Instagram</a></li>
-		<li><a id="discord" onclick="myFunction()" name="Baka Otaku#1788" title="Click to Copy">Discord: Baka
-				Otaku#1788</a></li>
+	<li><a href="https://gitlab.com/Tanish2002">GitLab</a>/<a href="https://github.com/Tanish2002">GitHub</a></li>
+	<li><a href="https://www.instagram.com/baka_otaku2002/">Instagram</a></li>
+	<li><a id="discord" onclick="myFunction()" name="Baka Otaku#1788" title="Click to Copy">Discord: Baka Otaku#1788</a></li>
 	</ul>
 </body>
-
 </html>
