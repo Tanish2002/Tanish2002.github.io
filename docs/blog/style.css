@@ -67,6 +67,7 @@ h5 {
 }
 p {
   font-size: 0.7em;
+  /* text-align: justify; */
 }
 li {
   font-size: 0.7em;
