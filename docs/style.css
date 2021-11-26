@@ -3,11 +3,6 @@
   padding: 0;
 }
 
-a:hover {
-  color: #ff6666;
-}
-
-
 .entry {
   border-left: 10px solid cyan;
   padding: 0px 10px 0px 10px;
@@ -69,10 +64,16 @@ h5 {
 
 p {
   font-size: 0.7em;
+  margin-bottom: 15px;
 }
 
 hr {
   border: solid 1px;
+  margin: 15px 0;
+}
+
+ul {
+  margin-left: 30px;
 }
 
 pre code {
@@ -85,6 +86,29 @@ pre code {
   overflow-x: scroll;
   max-width: 100%;
   padding: 20px;
+}
+
+.skills {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.skills ul {
+  padding: 0 3rem 0 0;
+  list-style: none;
+}
+
+.skills ul li {
+  padding: 2px 15px;
+  margin: 10px 0;
+  font-size: 0.7em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.skills ul li:hover {
+  background-color: #ffffff52;
+  color: #101010;
 }
 
 code {
@@ -116,6 +140,7 @@ a {
 
 a:hover {
   text-decoration: underline;
+  color: #ff6666;
 }
 
 #links {
