@@ -88,6 +88,29 @@ pre code {
   padding: 20px;
 }
 
+.skills {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.skills ul {
+  padding: 0 3rem 0 0;
+  list-style: none;
+}
+
+.skills ul li {
+  padding: 2px 15px;
+  margin: 10px 0;
+  font-size: 0.7em;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+}
+
+.skills ul li:hover {
+  background-color: #ffffff52;
+  color: #101010;
+}
+
 code {
   background-color: #202020;
   border: 1px inset cyan;
